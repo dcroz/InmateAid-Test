@@ -1,0 +1,77 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    byebug (3.5.1)
+      columnize (~> 0.8)
+      debugger-linecache (~> 1.2)
+      slop (~> 3.6)
+    capybara (2.4.4)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    capybara-webkit (1.5.1)
+      capybara (>= 2.3.0, < 2.5.0)
+      json
+    childprocess (0.5.5)
+      ffi (~> 1.0, >= 1.0.11)
+    coderay (1.1.0)
+    columnize (0.9.0)
+    debugger-linecache (1.2.0)
+    diff-lcs (1.2.5)
+    dotenv (2.0.1)
+    ffi (1.9.8)
+    json (1.8.2)
+    method_source (0.8.2)
+    mime-types (2.4.3)
+    mini_portile (0.6.2)
+    multi_json (1.11.0)
+    nokogiri (1.6.6.2)
+      mini_portile (~> 0.6.0)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-byebug (3.0.1)
+      byebug (~> 3.4)
+      pry (~> 0.10)
+    rack (1.6.0)
+    rack-test (0.6.3)
+      rack (>= 1.0)
+    rb-readline (0.5.2)
+    rspec (3.2.0)
+      rspec-core (~> 3.2.0)
+      rspec-expectations (~> 3.2.0)
+      rspec-mocks (~> 3.2.0)
+    rspec-core (3.2.0)
+      rspec-support (~> 3.2.0)
+    rspec-expectations (3.2.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-mocks (3.2.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-support (3.2.2)
+    rubyzip (1.1.7)
+    selenium-webdriver (2.45.0)
+      childprocess (~> 0.5)
+      multi_json (~> 1.0)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
+    slop (3.6.0)
+    websocket (1.2.1)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  capybara
+  capybara-webkit
+  dotenv
+  pry-byebug
+  rb-readline
+  rspec
+  selenium-webdriver
