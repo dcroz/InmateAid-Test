@@ -12,6 +12,7 @@ describe "Signup", :type => :feature do
     page.fill_in 'confirm', with: 'thisismypassword'
     page.fill_in 'code', with: ENV['CAPTCHA_BYPASS']
     click_button 'Register Now!'
+
     expect(current_path).to eq('/members')
   end
 end
