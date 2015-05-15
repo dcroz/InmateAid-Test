@@ -1,10 +1,18 @@
+require 'rubygems'
+require 'bundler/setup'
+require 'dotenv'
 require 'capybara'
 require 'capybara/rspec'
+require 'capybara/poltergeist'
 require 'selenium-webdriver'
-require 'dotenv'
 require 'pry'
 
 Dotenv.load('.env')
 
-Capybara.default_driver = :selenium
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, phantomjs_options: ['--web-security=false'])
+end
+
+Capybara.javascript_driver = ENV['JAVASCRIPT_DRIVER'].to_sym
+Capybara.default_driver = ENV['DEFAULT_DRIVER'].to_sym
 Capybara.app_host = 'http://staging.inmateaid.com'

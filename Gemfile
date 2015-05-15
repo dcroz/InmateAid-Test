@@ -1,9 +1,10 @@
 source "https://rubygems.org"
 
 gem 'capybara'
-gem 'rspec'
-gem 'pry-byebug'
-gem 'selenium-webdriver'
-gem 'rb-readline'
 gem 'capybara-webkit'
 gem 'dotenv'
+gem 'poltergeist'
+gem 'pry-byebug'
+gem 'rb-readline'
+gem 'rspec'
+gem 'selenium-webdriver'
