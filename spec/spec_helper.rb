@@ -4,6 +4,7 @@ require 'dotenv'
 require 'capybara'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
+require 'support/typeahead_select'
 require 'selenium-webdriver'
 require 'pry'
 
@@ -16,3 +17,7 @@ end
 Capybara.javascript_driver = ENV['JAVASCRIPT_DRIVER'].to_sym
 Capybara.default_driver = ENV['DEFAULT_DRIVER'].to_sym
 Capybara.app_host = 'http://staging.inmateaid.com'
+
+RSpec.configure do |config|
+  config.include TypeaheadSelect, type: :feature
+end
