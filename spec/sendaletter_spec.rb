@@ -46,6 +46,6 @@ describe 'send a letter', type: :feature do
     click_button 'Save'
     page.visit page.current_path
 
-    expect(page).to have_content('Aaliyah, Hi. Sincerely, QA')
+    expect(page.find('#letter_letter_content')).to have_content('Aaliyah, Hi. Sincerely, QA')
   end
 end

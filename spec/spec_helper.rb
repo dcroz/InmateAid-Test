@@ -14,8 +14,8 @@ Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, phantomjs_options: ['--web-security=false'])
 end
 
-Capybara.javascript_driver = ENV['JAVASCRIPT_DRIVER'].to_sym
-Capybara.default_driver = ENV['DEFAULT_DRIVER'].to_sym
+Capybara.javascript_driver = ENV['DRIVER'].to_sym
+Capybara.default_driver = ENV['DRIVER'].to_sym
 Capybara.app_host = 'http://staging.inmateaid.com'
 
 RSpec.configure do |config|
