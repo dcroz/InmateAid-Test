@@ -5,7 +5,7 @@ describe 'send a letter', type: :feature do
     page.fill_in 'email', with: 'QATest1432011378@email.com'
     page.fill_in 'password', with: 'thisismypassword'
     click_button 'Log In'
-    visit '/r/shop/letters'
+    visit '/letters'
 
     within('#send_a_letter_description') do
       click_button 'Send Letter Now'
@@ -41,11 +41,31 @@ describe 'send a letter', type: :feature do
   it 'find existing inmate and saves letter' do
     page.fill_in 'inmate_search', with: 'Aaliyah Lawton - Delaware County PA George W. Hill Correctional Facility'
     typeahead_select '#inmate_search', with: 'Aaliyah Lawton', index: 0
-    click_button 'Select Inmate'
+    click_button 'Send Letter to Aaliyah'
     page.fill_in 'letter[letter_content]', with: 'Aaliyah, Hi. Sincerely, QA'
     click_button 'Save'
     page.visit page.current_path
 
     expect(page.find('#letter_letter_content')).to have_content('Aaliyah, Hi. Sincerely, QA')
+  end
+
+  it 'find existing inmate and pays for letter' do
+    page.fill_in 'inmate_search', with: 'Aaliyah Lawton - Delaware County PA George W. Hill Correctional Facility'
+    typeahead_select '#inmate_search', with: 'Aaliyah Lawton', index: 0
+    click_button 'Send Letter to Aaliyah'
+    page.fill_in 'letter[letter_content]', with: 'Aaliyah, Hi. Sincerely, QA'
+    click_button 'Preview and Send'
+    click_button 'Buy Now'
+    page.fill_in 'payment[first_name]', with: 'Homer'
+    page.fill_in 'payment[last_name]', with: 'Simpson'
+    page.fill_in 'payment[credit_card_number]', with: ENV['TEST_CREDIT_CARD_NUMBER']
+    select '1 - Jan', :from =>'payment[expiration_month]'
+    select '2020', :from =>'payment[expiration_year]'
+    page.fill_in 'payment[card_security_code]', with: '123'
+    page.fill_in 'payment[zip_code]', with: '99999'
+    find('.terms_and_conditions_container img').click
+    click_button 'Pay Now'
+
+    expect(page).to have_content('Thank you, your payment was successful and we will send your letter shortly!')
   end
 end
