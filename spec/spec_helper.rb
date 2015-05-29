@@ -11,7 +11,10 @@ require 'pry'
 Dotenv.load('.env')
 
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, phantomjs_options: ['--web-security=false'])
+  Capybara::Poltergeist::Driver.new(
+    app,
+    js_errors: false,
+    phantomjs_options: ['--web-security=false'])
 end
 
 Capybara.javascript_driver = ENV['DRIVER'].to_sym
