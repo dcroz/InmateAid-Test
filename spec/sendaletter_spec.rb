@@ -68,6 +68,8 @@ describe 'send a letter', type: :feature do
       page.fill_in 'payment[card_security_code]', with: '123'
       page.fill_in 'payment[zip_code]', with: '99999'
       find('.terms_and_conditions_container img').click
+      page.execute_script "window.scrollBy(0,10000)"
+
       click_button 'Pay Now'
 
       expect(page).to have_content('Thank you, your payment was successful and we will send your letter shortly!')
@@ -82,6 +84,7 @@ describe 'send a letter', type: :feature do
       page.fill_in 'payment[card_security_code]', with: '123'
       page.fill_in 'payment[zip_code]', with: '99999'
       find('.terms_and_conditions_container img').click
+      page.execute_script "window.scrollBy(0,10000)"
       click_button 'Pay Now'
 
       expect(page).to have_content('The credit card information you provided is not valid. Please double check the information you provided and then try again.')
