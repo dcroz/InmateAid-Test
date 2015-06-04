@@ -63,7 +63,7 @@ describe 'send a letter', type: :feature do
       page.fill_in 'payment[first_name]', with: 'Homer'
       page.fill_in 'payment[last_name]', with: 'Simpson'
       page.fill_in 'payment[credit_card_number]', with: ENV['TEST_CREDIT_CARD_NUMBER']
-      select '1 - Jan', :from =>'payment[expiration_month]'
+      select '1', :from =>'payment[expiration_month]'
       select '2020', :from =>'payment[expiration_year]'
       page.fill_in 'payment[card_security_code]', with: '123'
       page.fill_in 'payment[zip_code]', with: '99999'
@@ -77,7 +77,7 @@ describe 'send a letter', type: :feature do
       page.fill_in 'payment[first_name]', with: 'Homer'
       page.fill_in 'payment[last_name]', with: 'Simpson'
       page.fill_in 'payment[credit_card_number]', with: '1111111111111'
-      select '1 - Jan', :from =>'payment[expiration_month]'
+      select '1', :from =>'payment[expiration_month]'
       select '2020', :from =>'payment[expiration_year]'
       page.fill_in 'payment[card_security_code]', with: '123'
       page.fill_in 'payment[zip_code]', with: '99999'
