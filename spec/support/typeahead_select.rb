@@ -2,7 +2,11 @@ module TypeaheadSelect
   def typeahead_select(selector, with:nil, index:0)
     page.execute_script <<-EOF
       window.$('#{selector}').focus().typeahead('val', '#{with}').focus();
-      window.$('#{selector}').nextAll('.tt-menu').find('.tt-suggestion').eq(#{index}).click();
     EOF
+
+    # find selector's parent, then find any typeahead suggestions and click the
+    # first one
+    find(selector).find(:xpath, './/..').find('.tt-menu')
+      .find('.tt-suggestion').click
   end
 end
