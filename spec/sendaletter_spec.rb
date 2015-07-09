@@ -33,7 +33,7 @@ describe 'send a letter', type: :feature do
     page.fill_in 'first', with: inmate_first_name
     page.fill_in 'last', with: inmate_last_name
     page.fill_in 'number', with: '11111'
-    click_button 'Search'
+    find('.inmate-profile-search-header + form button[type=submit]').click
 
     expect(page).to have_content("#{inmate_last_name}, #{inmate_first_name} #11111")
   end
